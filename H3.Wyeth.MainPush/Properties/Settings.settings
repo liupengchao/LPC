@@ -1,0 +1,9 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="H3.Wyeth.MainPush.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="H3_Wyeth_MainPush_com_h3yun_www_BizObjectService" Type="(Web Service URL)" Scope="Application">
+      <Value Profile="(Default)">http://www.h3yun.com/Webservices/BizObjectService.asmx</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

@@ -1,0 +1,334 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="CreateBizObjects">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="schemaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objDatas" type="tns:ArrayOfString" />
+            <s:element minOccurs="1" maxOccurs="1" name="submit" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfString">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="string" nillable="true" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="CreateBizObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateBizObjectsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="Authentication" type="tns:Authentication" />
+      <s:complexType name="Authentication">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="EngineCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CorpId" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Secret" type="s:string" />
+        </s:sequence>
+        <s:anyAttribute />
+      </s:complexType>
+      <s:element name="CreateBizObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="schemaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objData" type="s:string" />
+            <s:element minOccurs="1" maxOccurs="1" name="submit" type="s:boolean" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="CreateBizObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CreateBizObjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBizObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="schemaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectId" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objData" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="UpdateBizObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="UpdateBizObjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadBizObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="schemaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadBizObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadBizObjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadBizObjects">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="schemaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="filterStr" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="LoadBizObjectsResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="LoadBizObjectsResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveBizObject">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="schemaCode" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="objectId" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="RemoveBizObjectResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="RemoveBizObjectResult" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="CreateBizObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateBizObjects" />
+  </wsdl:message>
+  <wsdl:message name="CreateBizObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateBizObjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateBizObjectsAuthentication">
+    <wsdl:part name="Authentication" element="tns:Authentication" />
+  </wsdl:message>
+  <wsdl:message name="CreateBizObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:CreateBizObject" />
+  </wsdl:message>
+  <wsdl:message name="CreateBizObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:CreateBizObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="CreateBizObjectAuthentication">
+    <wsdl:part name="Authentication" element="tns:Authentication" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBizObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:UpdateBizObject" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBizObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:UpdateBizObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="UpdateBizObjectAuthentication">
+    <wsdl:part name="Authentication" element="tns:Authentication" />
+  </wsdl:message>
+  <wsdl:message name="LoadBizObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadBizObject" />
+  </wsdl:message>
+  <wsdl:message name="LoadBizObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadBizObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadBizObjectAuthentication">
+    <wsdl:part name="Authentication" element="tns:Authentication" />
+  </wsdl:message>
+  <wsdl:message name="LoadBizObjectsSoapIn">
+    <wsdl:part name="parameters" element="tns:LoadBizObjects" />
+  </wsdl:message>
+  <wsdl:message name="LoadBizObjectsSoapOut">
+    <wsdl:part name="parameters" element="tns:LoadBizObjectsResponse" />
+  </wsdl:message>
+  <wsdl:message name="LoadBizObjectsAuthentication">
+    <wsdl:part name="Authentication" element="tns:Authentication" />
+  </wsdl:message>
+  <wsdl:message name="RemoveBizObjectSoapIn">
+    <wsdl:part name="parameters" element="tns:RemoveBizObject" />
+  </wsdl:message>
+  <wsdl:message name="RemoveBizObjectSoapOut">
+    <wsdl:part name="parameters" element="tns:RemoveBizObjectResponse" />
+  </wsdl:message>
+  <wsdl:message name="RemoveBizObjectAuthentication">
+    <wsdl:part name="Authentication" element="tns:Authentication" />
+  </wsdl:message>
+  <wsdl:portType name="BizObjectServiceSoap">
+    <wsdl:operation name="CreateBizObjects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建流程或业务对象</wsdl:documentation>
+      <wsdl:input message="tns:CreateBizObjectsSoapIn" />
+      <wsdl:output message="tns:CreateBizObjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="CreateBizObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建流程或业务对象</wsdl:documentation>
+      <wsdl:input message="tns:CreateBizObjectSoapIn" />
+      <wsdl:output message="tns:CreateBizObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBizObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">创建流程或业务对象</wsdl:documentation>
+      <wsdl:input message="tns:UpdateBizObjectSoapIn" />
+      <wsdl:output message="tns:UpdateBizObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadBizObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">加载表单数据</wsdl:documentation>
+      <wsdl:input message="tns:LoadBizObjectSoapIn" />
+      <wsdl:output message="tns:LoadBizObjectSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="LoadBizObjects">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">批量加载表单数据</wsdl:documentation>
+      <wsdl:input message="tns:LoadBizObjectsSoapIn" />
+      <wsdl:output message="tns:LoadBizObjectsSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="RemoveBizObject">
+      <wsdl:documentation xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">删除流程或业务对象</wsdl:documentation>
+      <wsdl:input message="tns:RemoveBizObjectSoapIn" />
+      <wsdl:output message="tns:RemoveBizObjectSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="BizObjectServiceSoap" type="tns:BizObjectServiceSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateBizObjects">
+      <soap:operation soapAction="http://tempuri.org/CreateBizObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateBizObjectsAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBizObject">
+      <soap:operation soapAction="http://tempuri.org/CreateBizObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:CreateBizObjectAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBizObject">
+      <soap:operation soapAction="http://tempuri.org/UpdateBizObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:UpdateBizObjectAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadBizObject">
+      <soap:operation soapAction="http://tempuri.org/LoadBizObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoadBizObjectAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadBizObjects">
+      <soap:operation soapAction="http://tempuri.org/LoadBizObjects" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:LoadBizObjectsAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveBizObject">
+      <soap:operation soapAction="http://tempuri.org/RemoveBizObject" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+        <soap:header message="tns:RemoveBizObjectAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="BizObjectServiceSoap12" type="tns:BizObjectServiceSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="CreateBizObjects">
+      <soap12:operation soapAction="http://tempuri.org/CreateBizObjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateBizObjectsAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="CreateBizObject">
+      <soap12:operation soapAction="http://tempuri.org/CreateBizObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:CreateBizObjectAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="UpdateBizObject">
+      <soap12:operation soapAction="http://tempuri.org/UpdateBizObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:UpdateBizObjectAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadBizObject">
+      <soap12:operation soapAction="http://tempuri.org/LoadBizObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LoadBizObjectAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="LoadBizObjects">
+      <soap12:operation soapAction="http://tempuri.org/LoadBizObjects" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:LoadBizObjectsAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="RemoveBizObject">
+      <soap12:operation soapAction="http://tempuri.org/RemoveBizObject" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+        <soap12:header message="tns:RemoveBizObjectAuthentication" part="Authentication" use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="BizObjectService">
+    <wsdl:port name="BizObjectServiceSoap" binding="tns:BizObjectServiceSoap">
+      <soap:address location="http://www.h3yun.com/Webservices/BizObjectService.asmx" />
+    </wsdl:port>
+    <wsdl:port name="BizObjectServiceSoap12" binding="tns:BizObjectServiceSoap12">
+      <soap12:address location="http://www.h3yun.com/Webservices/BizObjectService.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>
